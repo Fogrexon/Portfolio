@@ -7,8 +7,9 @@ import {
 
 import { LinkContainer } from 'react-router-bootstrap';
 
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import {
+  Navbar, Nav, Row, Col,
+} from 'react-bootstrap';
 
 import Home from './home/main';
 import About from './about/main';
@@ -17,33 +18,27 @@ import Blog from './blog/main';
 import Contact from './contact/main';
 
 const NavigationBar = () => (
-  <Navbar bg="dark" variant="dark">
-    <LinkContainer to="/">
-      <Navbar.Brand>Fogrexs Website</Navbar.Brand>
-    </LinkContainer>
-    <Nav className="justify-content-end">
-      <Nav.Item>
-        <LinkContainer to="about">
-          <Nav.Link>About</Nav.Link>
-        </LinkContainer>
-      </Nav.Item>
-      <Nav.Item>
-        <LinkContainer to="gallery">
-          <Nav.Link>Gallery</Nav.Link>
-        </LinkContainer>
-      </Nav.Item>
-      <Nav.Item>
-        <LinkContainer to="blog">
-          <Nav.Link>Blog</Nav.Link>
-        </LinkContainer>
-      </Nav.Item>
-      <Nav.Item>
-        <LinkContainer to="contact">
-          <Nav.Link>Contact</Nav.Link>
-        </LinkContainer>
-      </Nav.Item>
-    </Nav>
-  </Navbar>
+  <div>
+    <Navbar bg="dark" variant="dark">
+      <LinkContainer to="/">
+        <Navbar.Brand>Fogrex&apos;s Website</Navbar.Brand>
+      </LinkContainer>
+      <Nav className="justify-content-end">
+        <Nav.Item>
+          <Nav.Link href="about">About</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="gallery">Gallery</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="blog">Blog</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="contact">Contact</Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </Navbar>
+  </div>
 );
 
 const Switcher = () => (
@@ -56,9 +51,28 @@ const Switcher = () => (
   </Switch>
 );
 
+const Footer = () => (
+  <div style={{ height: '100px' }}>
+    <Row className="bg-dark" style={{ color: '#fff' }}>
+      <Col>
+        <span style={{ fontSize: '30px' }}>Fogrex</span>
+      </Col>
+      <Col className="text-left">
+        <a href="https://twitter.com/Faglexon">
+          <i className="fab fa-twitter link-icon" />
+        </a>
+        <a href="mailto:fagrexon@gmail.com">
+          <i className="far fa-envelope link-icon" />
+        </a>
+      </Col>
+    </Row>
+  </div>
+);
+
 export default () => (
   <Router>
     <NavigationBar />
     <Switcher />
+    <Footer />
   </Router>
 );

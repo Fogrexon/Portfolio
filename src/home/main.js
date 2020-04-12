@@ -1,7 +1,9 @@
 import React from 'react';
+import { BigTitle, Galleries } from './Components';
 
 export default () => (
-  <h1>
-    Home Page
-  </h1>
+  <div>
+    <BigTitle />
+    <Galleries />
+  </div>
 );
