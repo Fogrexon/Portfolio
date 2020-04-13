@@ -2,8 +2,8 @@ import React from 'react';
 import { BigTitle, Galleries } from './Components';
 
 export default () => (
-  <div>
+  <React.Fragment>
     <BigTitle />
     <Galleries />
-  </div>
+  </React.Fragment>
 );

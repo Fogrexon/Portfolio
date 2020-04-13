@@ -1,9 +1,10 @@
 import React from 'react';
 import { BigTitle, Galleries } from './Components';
+import '../App.scss';
 
 export default () => (
-  <div>
+  <React.Fragment>
     <BigTitle />
     <Galleries />
-  </div>
+  </React.Fragment>
 );

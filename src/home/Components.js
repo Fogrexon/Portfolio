@@ -42,7 +42,7 @@ const GalleryCard = (props) => {
   } = props;
   src = src || noImage;
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card>
       <Card.Img variant="top" src={src} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
@@ -70,7 +70,7 @@ export const Galleries = () => {
   }
   return (
     <div className="main-section">
-      <h1 className="sectionTitle link">Gallery</h1>
+      <h1 className="section-title">Gallery</h1>
       <CardDeck>{listItem}</CardDeck>
     </div>
   );
