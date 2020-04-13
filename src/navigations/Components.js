@@ -8,7 +8,7 @@ import style from './Basics.module.scss';
 
 export const NavigationBar = () => (
   <div>
-    <Navbar bg="dark" variant="dark">
+    <Navbar>
       <LinkContainer to="/">
         <Navbar.Brand>Fogrex&apos;s Website</Navbar.Brand>
       </LinkContainer>
@@ -32,10 +32,19 @@ export const NavigationBar = () => (
 
 export const Footer = () => (
   <React.Fragment>
-    <div className={style.footer}>
-      <i className={ "fab fa-twitter " + style.icons }></i>
-      <i className={ "fas fa-envelope " + style.icons }></i>
-      <i className={ "fab fa-youtube " + style.icons }></i>
+    <div className={ style.footer }>
+      <div className={ style.icon_container }>
+        <div>
+          <i className={ ['fab fa-twitter', style.icons, style.twt].join(' ') }></i>
+          <i className={ ['fas fa-envelope', style.icons, style.evp].join(' ') }></i>
+          <i className={ ['fab fa-youtube', style.icons, style.ytb].join(' ') }></i>
+        </div>
+      </div>
+      <div className={ style.copyright_container }>
+        <span>
+          <copyright>2020 Copyright:</copyright>Fogrex
+        </span>
+      </div>
     </div>
   </React.Fragment>
 

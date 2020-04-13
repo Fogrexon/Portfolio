@@ -47,7 +47,7 @@ export const Galleries = () => {
   }
   return (
     <div className="main-section">
-      <h1 className="sectionTitle link">Gallery</h1>
+      <h1 className="section-title link">Gallery</h1>
       <CardColumns key='list1'>{listItem[0]}</CardColumns>
       <CardColumns key='list2'>{listItem[1]}</CardColumns>
       <CardColumns key='list3'>{listItem[2]}</CardColumns>

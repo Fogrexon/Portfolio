@@ -12,7 +12,7 @@ const iconImage = new Image();
 iconImage.src = iconPath;
 
 export const BigTitle = () => (
-  <Jumbotron>
+  <Jumbotron style={{background: 'transparent'}}>
     <Media>
       <img
         width={128}
