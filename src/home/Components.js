@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import React from 'react';
 import {
   Jumbotron, Button, Media, Card, CardDeck,
@@ -12,7 +12,7 @@ const iconImage = new Image();
 iconImage.src = iconPath;
 
 export const BigTitle = () => (
-  <Jumbotron style={{background: 'transparent'}}>
+  <Jumbotron style={{ background: 'transparent' }}>
     <Media>
       <img
         width={128}
