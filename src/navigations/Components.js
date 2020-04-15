@@ -32,15 +32,20 @@ export const Footer = () => (
     <div className={style.footer}>
       <div className={style.icon_container}>
         <div>
-          <i className={['fab fa-twitter', style.icons, style.twt].join(' ')} />
-          <i className={['fas fa-envelope', style.icons, style.evp].join(' ')} />
-          <i className={['fab fa-youtube', style.icons, style.ytb].join(' ')} />
+          <a href="https://twitter.com/Faglexon" target="_blank" rel="noopener noreferrer">
+            <i className={['fab fa-twitter', style.icons, style.twt].join(' ')} />
+          </a>
+          <a href="mailto:fogrexon@gmail.com" target="_blank" rel="noopener noreferrer">
+            <i className={['fas fa-envelope', style.icons, style.evp].join(' ')} />
+          </a>
+          <a href="https://www.youtube.com/channel/UCNs8VOkhh8JPYwyH9yTsjzA" target="_blank" rel="noopener noreferrer">
+            <i className={['fab fa-youtube', style.icons, style.ytb].join(' ')} />
+          </a>
         </div>
       </div>
       <div className={style.copyright_container}>
         <span>
-          <copyright>2020 Copyright:</copyright>
-          Fogrex
+          <small>&copy; 2020 Fogrex</small>
         </span>
       </div>
     </div>

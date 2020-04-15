@@ -5,7 +5,7 @@ import {
 
 } from 'react-bootstrap';
 import Items from '../gallery/Items';
-import iconPath from '../images/fogrex_icon.jpg';
+import iconPath from '../images/fogrex_icon.svg';
 import noImage from '../images/galleries/noimage.png';
 
 const iconImage = new Image();
