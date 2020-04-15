@@ -1,7 +1,12 @@
 import React from 'react';
+import { BigTitle } from '../utils/Components';
 
 export default () => (
-  <h1>
-    About Page
-  </h1>
+  <React.Fragment>
+      <BigTitle title='About' >
+        <p>
+          Fogrexの自己紹介です
+        </p>
+      </BigTitle>
+  </React.Fragment>
 );

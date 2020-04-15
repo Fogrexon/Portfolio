@@ -1,20 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import {
-  Jumbotron, Button, Card, CardColumns,
+  Button, Card, CardColumns,
 
 } from 'react-bootstrap';
 import Items from './Items';
 import noImage from '../images/galleries/noimage.png';
 
-export const BigTitle = () => (
-  <Jumbotron>
-    <h1>Gallery Page</h1>
-    <div>
-      これはFogrexが今まで作った作品を置いておくページ
-    </div>
-  </Jumbotron>
-);
 
 const GalleryCard = (props) => {
   let { src } = props.item;

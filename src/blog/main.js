@@ -1,7 +1,6 @@
 import React from 'react';
+import Construction from './Components';
 
 export default () => (
-  <h1>
-    Blog Page
-  </h1>
+  <Construction />
 );
