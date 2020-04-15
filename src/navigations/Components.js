@@ -22,30 +22,28 @@ export const NavigationBar = () => (
         <Nav.Item>
           <Nav.Link href="blog">Blog</Nav.Link>
         </Nav.Item>
-        <Nav.Item>
-          <Nav.Link href="contact">Contact</Nav.Link>
-        </Nav.Item>
       </Nav>
     </Navbar>
   </div>
 );
 
 export const Footer = () => (
-  <React.Fragment>
-    <div className={ style.footer }>
-      <div className={ style.icon_container }>
+  <>
+    <div className={style.footer}>
+      <div className={style.icon_container}>
         <div>
-          <i className={ ['fab fa-twitter', style.icons, style.twt].join(' ') }></i>
-          <i className={ ['fas fa-envelope', style.icons, style.evp].join(' ') }></i>
-          <i className={ ['fab fa-youtube', style.icons, style.ytb].join(' ') }></i>
+          <i className={['fab fa-twitter', style.icons, style.twt].join(' ')} />
+          <i className={['fas fa-envelope', style.icons, style.evp].join(' ')} />
+          <i className={['fab fa-youtube', style.icons, style.ytb].join(' ')} />
         </div>
       </div>
-      <div className={ style.copyright_container }>
+      <div className={style.copyright_container}>
         <span>
-          <copyright>2020 Copyright:</copyright>Fogrex
+          <copyright>2020 Copyright:</copyright>
+          Fogrex
         </span>
       </div>
     </div>
-  </React.Fragment>
+  </>
 
 );
