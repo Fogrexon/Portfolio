@@ -47,7 +47,7 @@ const GalleryCard = (props) => {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>{description}</Card.Text>
-        <Button variant="primary" href={link} key="play" disabled={!link}>Play</Button>
+        <Button variant="primary" href={link} key="play" disabled={!link}>Link</Button>
         <Button variant="secondary" href={sourcecode} key="source" disabled={!sourcecode}>Source</Button>
       </Card.Body>
     </Card>
@@ -56,7 +56,7 @@ const GalleryCard = (props) => {
 
 export const Galleries = () => {
   const listItem = [];
-  for (let i = 0; i < Math.min(Items.length, 3); i += 1) {
+  for (let i = Math.max(Items.length - 3, 0); i < Items.length; i += 1) {
     listItem.push(
       <GalleryCard
         title={Items[i].title}

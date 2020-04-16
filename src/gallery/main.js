@@ -6,7 +6,7 @@ export default () => (
   <>
     <BigTitle title="Gallery">
       <p>
-        ここではFogrexの作品を展示しています
+        ここではFogrexの制作物を展示しています
       </p>
     </BigTitle>
     <Galleries />

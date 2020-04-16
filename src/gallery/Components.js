@@ -1,8 +1,7 @@
 
 import React from 'react';
 import {
-  Button, Card, CardColumns,
-
+  Button, Card, CardColumns, Badge,
 } from 'react-bootstrap';
 import Items from './Items';
 import noImage from '../images/galleries/noimage.png';
@@ -11,7 +10,7 @@ import noImage from '../images/galleries/noimage.png';
 const GalleryCard = ({ item }) => {
   let { src } = item;
   const {
-    title, description, link, sourcecode,
+    title, description, link, sourcecode, tags,
   } = item;
   src = src || noImage;
   return (
@@ -19,9 +18,10 @@ const GalleryCard = ({ item }) => {
       <Card.Img variant="top" src={src} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
+        <div>{tags.split(' ').map((tag) => (<Badge pill variant="dark">{tag}</Badge>))}</div>
         <Card.Text>{description}</Card.Text>
-        <Button variant="primary" href={link} key="play" disabled={!link}>Play</Button>
-        <Button variant="secondary" href={sourcecode} key="source" disabled={!sourcecode}>Source</Button>
+        <Button variant="primary" href={link} key="play" disabled={!link}>Link</Button>
+        <Button variant="dark" href={sourcecode} key="source" disabled={!sourcecode}>Source</Button>
       </Card.Body>
     </Card>
   );
