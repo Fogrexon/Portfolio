@@ -39,6 +39,11 @@ export default () => (
         東京工業大学情報工学系学部2年
         <br />
         東京工業大学デジタル創作同好会traP
+        (
+        <a href="https://trap.jp/author/fogrex/">
+          自分の記事
+        </a>
+        )
         <br />
         東京工業大学ロボット技術研究会 CGSquare,VR研
       </Subsection>

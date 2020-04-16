@@ -14,7 +14,6 @@ body {
   align-items: center;
   background-color: #333;
   height: 200px;
-  font-size: 50px;
 }
 
 .copyright_container {
@@ -30,17 +29,19 @@ body {
   transition: ease-in 0.2s;
   margin: 0 0.5rem;
   color: white;
+  font-size: 50px;
+}
+
+.icons:hover {
+  font-size: 60px;
 }
 
 .twt:hover {
   color: #1DA1F2;
-  font-size: 60px;
 }
 .evp:hover {
   color: #D44638;
-  font-size: 60px;
 }
 .ytb:hover {
   color: #FF0000;
-  font-size: 60px;
 }

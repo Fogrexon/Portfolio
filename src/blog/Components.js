@@ -2,7 +2,7 @@ import React from 'react';
 
 const outStyle = {
   width: '100%',
-  // height: '1px',
+  height: '500px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
