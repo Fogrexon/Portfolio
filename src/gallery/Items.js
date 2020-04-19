@@ -10,7 +10,7 @@ import Website from '../images/galleries/Website.png';
 export default [
   {
     title: 'カップル破壊ゲーム-あいを破壊せよ-',
-    description: 'カップル破壊ゲームです サークル内でのハッカソンで作りました',
+    description: 'カップル破壊ゲーム サークル内でのハッカソンで制作　5人チーム',
     tags: 'UnityC# traP',
     link: 'https://trap.jp/post/741/',
     sourcecode: '',
@@ -69,15 +69,15 @@ export default [
     description: '自作のSNS　サークル内の講習会の集大成',
     tags: 'React Nodejs Material-UI traP',
     link: 'http://sns.fogrex.com',
-    sourcecode: 'https://github.com/Fogrexon/webapp-login',
+    sourcecode: 'https://github.com/Fogrexon/Fogrex-SNS',
     src: SNS,
   },
   {
     title: 'Fogrex\'s Website',
     description: 'このサイト',
     tags: 'React bootstrap Three.js',
-    link: '',
-    sourcecode: 'https://github.com/Fogrexon/webapp-login',
+    link: 'http://fogrex.com',
+    sourcecode: 'https://github.com/Fogrexon/portfolio',
     src: Website,
   },
 ];
