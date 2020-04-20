@@ -7,7 +7,7 @@ import Nav from 'react-bootstrap/Nav';
 import style from './Basics.module.scss';
 
 export const NavigationBar = () => (
-  <div>
+  <>
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <LinkContainer to="/">
         <Navbar.Brand>Fogrex&apos;s Website</Navbar.Brand>
@@ -27,12 +27,12 @@ export const NavigationBar = () => (
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-  </div>
+  </>
 );
 
 export const Footer = () => (
   <>
-    <div className={style.footer}>
+    <div className={`${style.footer} bg-dark`}>
       <div className={style.icon_container}>
         <div>
           <a href="https://twitter.com/Faglexon" target="_blank" rel="noopener noreferrer">

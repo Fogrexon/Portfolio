@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 import './App.scss';
 
-import Container from 'react-bootstrap/Container';
 
 import { NavigationBar, Footer } from './navigations/Components';
 
@@ -17,14 +16,14 @@ import Blog from './blog/main';
 
 
 const Switcher = () => (
-  <Container>
+  <>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
       <Route exact path="/gallery" component={Gallery} />
       <Route exact path="/blog" component={Blog} />
     </Switch>
-  </Container>
+  </>
 );
 
 

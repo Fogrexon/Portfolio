@@ -7,7 +7,7 @@ import Items from './Items';
 import noImage from '../images/galleries/noimage.png';
 
 
-const GalleryCard = ({ item }) => {
+export const GalleryCard = ({ item }) => {
   let { src } = item;
   const {
     title, description, link, sourcecode, tags,
@@ -18,10 +18,10 @@ const GalleryCard = ({ item }) => {
       <Card.Img variant="top" src={src} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
-        <div>{tags.split(' ').map((tag) => (<Badge pill variant="dark">{tag}</Badge>))}</div>
+        <div>{tags.split(' ').map((tag) => (<Badge variant="secondary" key={tag} style={{ borderRadius: '10px', margin: '2px' }}>{tag}</Badge>))}</div>
         <Card.Text>{description}</Card.Text>
         <Button variant="primary" href={link} key="play" disabled={!link}>Link</Button>
-        <Button variant="dark" href={sourcecode} key="source" disabled={!sourcecode}>Source</Button>
+        <Button variant="secondary" href={sourcecode} key="source" disabled={!sourcecode}>Source</Button>
       </Card.Body>
     </Card>
   );

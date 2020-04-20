@@ -1,5 +1,5 @@
 import React from 'react';
-import { BigTitle } from '../utils/Components';
+import { BigTitle, Content } from '../utils/Components';
 import Galleries from './Components';
 
 export default () => (
@@ -9,6 +9,8 @@ export default () => (
         ここではFogrexの制作物を展示しています
       </p>
     </BigTitle>
-    <Galleries />
+    <Content>
+      <Galleries />
+    </Content>
   </>
 );

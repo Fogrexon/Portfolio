@@ -19,9 +19,9 @@ const Subsection = ({ title, children }) => (
     <h2 className="sub-section-title">
       {title}
     </h2>
-    <p className="sub-section">
+    <div className="sub-section">
       {children}
-    </p>
+    </div>
   </>
 );
 
