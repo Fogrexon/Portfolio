@@ -6,11 +6,14 @@ import Nav from 'react-bootstrap/Nav';
 
 import style from './Basics.module.scss';
 
+const animList = [style.nav_anim_1, style.nav_anim_2, style.nav_anim_3];
+const anim = animList[Math.floor(Math.random() * animList.length)];
+
 export const NavigationBar = () => (
   <>
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
       <LinkContainer to="/">
-        <Navbar.Brand>Fogrex&apos;s Website</Navbar.Brand>
+        <Navbar.Brand className={[style.nav_title, anim].join(' ')}>Fogrex&apos;s Website</Navbar.Brand>
       </LinkContainer>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
@@ -32,7 +35,7 @@ export const NavigationBar = () => (
 
 export const Footer = () => (
   <>
-    <div className={`${style.footer} bg-dark`}>
+    <div className={style.footer}>
       <div className={style.icon_container}>
         <div>
           <a href="https://twitter.com/Faglexon" target="_blank" rel="noopener noreferrer">

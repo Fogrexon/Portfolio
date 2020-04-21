@@ -11,7 +11,9 @@ const Section = ({ title, children }) => (
       {title}
       <Icon />
     </h1>
-    {children}
+    <div className="section">
+      {children}
+    </div>
   </div>
 );
 const Subsection = ({ title, children }) => (

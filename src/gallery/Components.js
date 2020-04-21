@@ -28,21 +28,11 @@ export const GalleryCard = ({ item }) => {
 };
 
 export default () => {
-  const listItem = [[], [], []];
-  for (let i = 0; i < Items.length; i += 1) {
-    listItem[0].push(
-      <GalleryCard
-        item={Items[i]}
-        key={Items[i].title}
-      />,
-    );
-  }
+  const listItem = Items.map((item) => <GalleryCard item={item} key={item.title} />);
   return (
     <div className="main-section">
       <h1 className="section-title link">Gallery</h1>
-      <CardColumns key="list1">{listItem[0]}</CardColumns>
-      <CardColumns key="list2">{listItem[1]}</CardColumns>
-      <CardColumns key="list3">{listItem[2]}</CardColumns>
+      <CardColumns>{listItem}</CardColumns>
     </div>
   );
 };

@@ -72,9 +72,9 @@ $dark:          $gray-800 !default;
 
 
 $success: $cyan;
-$green: rgb(8, 120, 35);
+$green: rgb(10, 95, 30);
 $primary: $green;
-$teal: rgb(38, 104, 84);
+$teal: rgb(14, 100, 73);
 $secondary: $teal;
 $body-bg: $gray-900;
 $body-color: $white;
@@ -96,7 +96,7 @@ $pagination-border-color: $primary;
 $pagination-disabled-bg: $gray-700;
 $pagination-disabled-border-color: $gray-600;
 $link-color: $info;
-$jumbotron-bg: $gray-800;
+$jumbotron-bg: $primary;
 $modal-content-bg: $gray-800;
 $jumbotron-padding: 4rem;
 $enable-gradients: true;
