@@ -1,43 +1,47 @@
+/* eslint-disable no-return-assign */
 import React from 'react';
+import { Parallax } from 'react-scroll-parallax';
+import Container from 'react-bootstrap/Container';
 
 import icon from '../images/fogrex_icon.svg';
 import style from './About.module.scss';
 
-const Icon = () => (<img src={icon} style={{ width: '2rem' }} alt="fogrexicon" />);
 
-const Section = ({ title, children }) => (
-  <div>
-    <h1 className="section-title">
-      {title}
-      <Icon />
-    </h1>
-    <div className="section">
-      {children}
+const SectionTitle = ({ title }) => {
+  let x = title.length * -0.5 - 1;
+
+  return (
+    <div className="section-outer">
+      <h1 className="text-center section-title">
+        { title.split('').map((letter) => <Parallax x={[`${-(x += 1) * 0}px`, `${x * 50}px`]} className={style.title_letter}>{letter}</Parallax>) }
+      </h1>
     </div>
-  </div>
-);
+  );
+};
+
 const Subsection = ({ title, children }) => (
-  <>
-    <h2 className="sub-section-title">
+  <div className="sub-section">
+    <Parallax tagInner="h2" y={['-10px', '40px']} className="sub-section-title">
       {title}
-    </h2>
-    <div className="sub-section">
+    </Parallax>
+    <p>
       {children}
-    </div>
-  </>
+    </p>
+  </div>
 );
 
 export default () => (
   <>
-    <Section title="Introduction">
-      <Subsection title="Name">
+    <SectionTitle title="Introduction" key="intro" />
+    <Container>
+      <Subsection title="Name" key="name">
         <strong>Fogrex</strong>
         (Fogrexonが正式名称ですが長いので最近はこっちの方が多いです)
       </Subsection>
-      <Subsection title="Age">
+      <Subsection title="Age" key="age">
         19歳(5/29生まれ)
       </Subsection>
-      <Subsection title="Affiliation">
+      <Subsection title="Affiliation" key="affiliation">
         東京工業大学情報工学系学部2年
         <br />
         東京工業大学デジタル創作同好会traP
@@ -55,18 +59,19 @@ export default () => (
       <Subsection title="Use">
         Javascript(Nodejs React) Typescript Go GLSL Unity
       </Subsection>
-    </Section>
+    </Container>
 
-    <Section title="About Icon">
+    <SectionTitle title="About Icon" key="icon" />
+    <Container>
       <div className={style.fogrex_container}>
         <img src={icon} className={style.fogrex} alt="Big Fogrex Icon" />
       </div>
       このアイコンは私のシンボルともいえるものです。3秒で書きました。私の公式のページやチャンネルにはいたるところに用いられています。以下にsvgファイルを置いておきます。
       <a href={icon}>SVG</a>
-    </Section>
-
-    <Section title="Contact">
+    </Container>
+    <SectionTitle title="Contact" key="contact" />
+    <Container>
       Footer参照
-    </Section>
+    </Container>
   </>
 );
