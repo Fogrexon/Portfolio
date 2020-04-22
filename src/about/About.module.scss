@@ -5,12 +5,12 @@
 
 .fogrex_container {
   display: flex;
-  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
 .fogrex {
-  width: 100px;
+  width: 50px;
 }
 
 .icon {
@@ -19,6 +19,7 @@
 
 .list_style_none {
   list-style-type: none;
+  padding: 0px;
 }
 
 .list_style_none > li {

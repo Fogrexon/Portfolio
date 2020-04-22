@@ -8,35 +8,30 @@ import style from './About.module.scss';
 import iconStyle from '../navigations/Basics.module.scss';
 
 
-const SectionTitle = ({ title }) => {
-  let x = title.length * -0.5 - 1;
-  return (
-    <div className="section-outer">
+const SectionTitle = ({ title }) => (
+  <div className="section-outer">
+    <Parallax
+      animation={{ letterSpacing: 10, opacity: 1 }}
+      style={{
+        letterSpacing: 0,
+        opacity: 0,
+      }}
+      className={style.title_letter}
+    >
       <h1 className="text-center section-title">
-        { title.split('').map((letter) => (
-          <Parallax
-            animation={{ x: (x += 1) * 10, opacity: 1 }}
-            style={{
-              transform: `translateX(${x * 30}px)`,
-              opacity: 0,
-            }}
-            className={style.title_letter}
-          >
-            {letter}
-          </Parallax>
-        )) }
+        {title}
       </h1>
-    </div>
-  );
-};
+    </Parallax>
+  </div>
+);
 
 const Subsection = ({ title, children }) => (
   <div className="sub-section">
     <Parallax
       animation={
         [
-          { x: 0, opacity: 1, playScale: [0, 0.4] },
-          { x: 0, opacity: 1, playScale: [0, 0.6] },
+          { x: 0, opacity: 1, playScale: [0, 0.5] },
+          { x: 0, opacity: 1, playScale: [0, 0.5] },
         ]
       }
       style={{
@@ -89,34 +84,43 @@ export default () => (
         Javascript(Nodejs React Vue) Typescript Go GLSL Unity 3DCGModeling Illust Gaming
       </Subsection>
       <Subsection title="Use">
-        Javascript(Nodejs React) Typescript Go GLSL Unity
+        Javascript(Nodejs React) Go GLSL Unity
       </Subsection>
     </Container>
 
     <SectionTitle title="About Icon" key="icon" />
     <Container>
-      <div className={style.fogrex_container}>
-        <img src={icon} className={style.fogrex} alt="Big Fogrex Icon" />
-      </div>
-      このアイコンは私のシンボルともいえるものです。3秒で書きました。私の公式のページやチャンネルにはいたるところに用いられています。以下にsvgファイルを置いておきます。
-      <a href={icon}>SVG</a>
+      <Subsection
+        title={
+          (
+            <div className={style.fogrex_container}>
+              <img src={icon} className={style.fogrex} alt="Big Fogrex Icon" />
+            </div>
+          )
+        }
+      >
+        このアイコンは私のシンボルともいえるものです。3秒で書きました。私の公式のページやチャンネルにはいたるところに用いられています。以下にsvgファイルを置いておきます。
+        <a href={icon}>SVG</a>
+      </Subsection>
     </Container>
     <SectionTitle title="Contact" key="contact" />
-    <Container className={style.fogrex_container}>
-      <ul className={[style.list_style_none, style.padding].join(' ')}>
-        <li>
-          <a href="https://twitter.com/Faglexon" target="_blank" rel="noopener noreferrer">
-            <i className={['fab fa-twitter', iconStyle.icons, iconStyle.twt].join(' ')} />
-          </a>
-          TwitterDM
-        </li>
-        <li>
-          <a href="mailto:fogrexon@gmail.com" target="_blank" rel="noopener noreferrer">
-            <i className={['fas fa-envelope', iconStyle.icons, iconStyle.evp].join(' ')} />
-          </a>
-          Mail
-        </li>
-      </ul>
+    <Container>
+      <Subsection className={style.fogrex_container}>
+        <ul className={[style.list_style_none, style.padding].join(' ')}>
+          <li>
+            <a href="https://twitter.com/Faglexon" target="_blank" rel="noopener noreferrer">
+              <i className={['fab fa-twitter', iconStyle.icons, iconStyle.twt].join(' ')} />
+            </a>
+            TwitterDM
+          </li>
+          <li>
+            <a href="mailto:fogrexon@gmail.com" target="_blank" rel="noopener noreferrer">
+              <i className={['fas fa-envelope', iconStyle.icons, iconStyle.evp].join(' ')} />
+            </a>
+            Mail
+          </li>
+        </ul>
+      </Subsection>
     </Container>
   </>
 );
