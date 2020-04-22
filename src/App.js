@@ -1,5 +1,4 @@
 import React from 'react';
-import { ParallaxProvider } from 'react-scroll-parallax';
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,11 +28,9 @@ const Switcher = () => (
 
 
 export default () => (
-  <ParallaxProvider>
-    <Router>
-      <NavigationBar />
-      <Switcher />
-      <Footer />
-    </Router>
-  </ParallaxProvider>
+  <Router>
+    <NavigationBar />
+    <Switcher />
+    <Footer />
+  </Router>
 );

@@ -16,3 +16,15 @@
 .icon {
   color: black;
 }
+
+.list_style_none {
+  list-style-type: none;
+}
+
+.list_style_none > li {
+  display: block;
+}
+
+.padding {
+  padding: 10vh 0vw 40vh 0vw;
+}

@@ -1,19 +1,30 @@
 /* eslint-disable no-return-assign */
 import React from 'react';
-import { Parallax } from 'react-scroll-parallax';
+import { Parallax } from 'rc-scroll-anim';
 import Container from 'react-bootstrap/Container';
 
 import icon from '../images/fogrex_icon.svg';
 import style from './About.module.scss';
+import iconStyle from '../navigations/Basics.module.scss';
 
 
 const SectionTitle = ({ title }) => {
   let x = title.length * -0.5 - 1;
-
   return (
     <div className="section-outer">
       <h1 className="text-center section-title">
-        { title.split('').map((letter) => <Parallax x={[`${-(x += 1) * 0}px`, `${x * 50}px`]} className={style.title_letter}>{letter}</Parallax>) }
+        { title.split('').map((letter) => (
+          <Parallax
+            animation={{ x: (x += 1) * 10, opacity: 1 }}
+            style={{
+              transform: `translateX(${x * 30}px)`,
+              opacity: 0,
+            }}
+            className={style.title_letter}
+          >
+            {letter}
+          </Parallax>
+        )) }
       </h1>
     </div>
   );
@@ -21,12 +32,25 @@ const SectionTitle = ({ title }) => {
 
 const Subsection = ({ title, children }) => (
   <div className="sub-section">
-    <Parallax tagInner="h2" y={['-10px', '40px']} className="sub-section-title">
-      {title}
+    <Parallax
+      animation={
+        [
+          { x: 0, opacity: 1, playScale: [0, 0.4] },
+          { x: 0, opacity: 1, playScale: [0, 0.6] },
+        ]
+      }
+      style={{
+        transform: 'translateX(30px)',
+        opacity: 0,
+      }}
+    >
+      <h2 className="sub-section-title">
+        {title}
+      </h2>
+      <p>
+        {children}
+      </p>
     </Parallax>
-    <p>
-      {children}
-    </p>
   </div>
 );
 
@@ -42,16 +66,24 @@ export default () => (
         19歳(5/29生まれ)
       </Subsection>
       <Subsection title="Affiliation" key="affiliation">
-        東京工業大学情報工学系学部2年
+        <ul className={style.list_style_none}>
+          <li>
+            東京工業大学情報工学系学部2年
+          </li>
+          <li>
+            東京工業大学デジタル創作同好会traP
+            (
+            <a href="https://trap.jp/author/fogrex/">
+              自分の記事
+            </a>
+            )
+          </li>
+          <li>
+            東京工業大学ロボット技術研究会 CGSquare,VR研
+          </li>
+        </ul>
         <br />
-        東京工業大学デジタル創作同好会traP
-        (
-        <a href="https://trap.jp/author/fogrex/">
-          自分の記事
-        </a>
-        )
         <br />
-        東京工業大学ロボット技術研究会 CGSquare,VR研
       </Subsection>
       <Subsection title="Interested in">
         Javascript(Nodejs React Vue) Typescript Go GLSL Unity 3DCGModeling Illust Gaming
@@ -70,8 +102,21 @@ export default () => (
       <a href={icon}>SVG</a>
     </Container>
     <SectionTitle title="Contact" key="contact" />
-    <Container>
-      Footer参照
+    <Container className={style.fogrex_container}>
+      <ul className={[style.list_style_none, style.padding].join(' ')}>
+        <li>
+          <a href="https://twitter.com/Faglexon" target="_blank" rel="noopener noreferrer">
+            <i className={['fab fa-twitter', iconStyle.icons, iconStyle.twt].join(' ')} />
+          </a>
+          TwitterDM
+        </li>
+        <li>
+          <a href="mailto:fogrexon@gmail.com" target="_blank" rel="noopener noreferrer">
+            <i className={['fas fa-envelope', iconStyle.icons, iconStyle.evp].join(' ')} />
+          </a>
+          Mail
+        </li>
+      </ul>
     </Container>
   </>
 );
