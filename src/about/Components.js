@@ -1,29 +1,13 @@
+/* eslint-disable import/named */
 /* eslint-disable no-return-assign */
 import React from 'react';
 import { Parallax } from 'rc-scroll-anim';
 import Container from 'react-bootstrap/Container';
 
+import { SectionTitle } from '../utils/Components';
 import icon from '../images/fogrex_icon.svg';
 import style from './About.module.scss';
 import iconStyle from '../navigations/Basics.module.scss';
-
-
-const SectionTitle = ({ title }) => (
-  <div className="section-outer">
-    <Parallax
-      animation={{ letterSpacing: 10, opacity: 1 }}
-      style={{
-        letterSpacing: 0,
-        opacity: 0,
-      }}
-      className={style.title_letter}
-    >
-      <h1 className="text-center section-title">
-        {title}
-      </h1>
-    </Parallax>
-  </div>
-);
 
 const Subsection = ({ title, children }) => (
   <div className="sub-section">
