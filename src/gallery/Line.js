@@ -1,26 +1,25 @@
 import React from 'react';
 import { Parallax } from 'rc-scroll-anim';
 
-export default (id) => ({ delay, children }) => (
+export default ({ children }) => (
   <Parallax
     animation={[
       {
         opacity: 1,
         translateX: 0,
-        playScale: [delay + 1.0, delay + 1.5],
+        playScale: [0.1, 0.3],
       },
       {
         opacity: 0,
-        translateX: '-10%',
-        playScale: [1, 1.5],
+        translateX: 50,
+        playScale: [0.4, 0.6],
       },
     ]}
 
     style={{
-      transform: 'translateX(-10%)',
+      transform: 'translateX(-50px)',
       opacity: 0,
     }}
-    location={id}
   >
     {children}
   </Parallax>
