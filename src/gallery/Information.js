@@ -3,24 +3,23 @@ import {
   Button, Badge, Container,
 } from 'react-bootstrap';
 
-import _Line from './Line';
+import Line from './Line';
 import style from './Gallery.module.scss';
 
 export default ({
-  id, item, index, len,
+  item, index,
 }) => {
   const {
     title, tags, description, link, sourcecode,
   } = item;
-  const Line = _Line(id);
   return (
     <Container className={style.detail_inner}>
       <Line delay={0}>
         <h2>
-          {`#${index + 1}/${len} ${title}`}
+          {`#${index + 1} ${title}`}
         </h2>
       </Line>
-      <Line delay={0.2}>
+      <Line>
         <div>
           {
             tags.split(' ').map((tag) => (
@@ -29,12 +28,12 @@ export default ({
           }
         </div>
       </Line>
-      <Line delay={0.4}>
+      <Line>
         <p>
           {description}
         </p>
       </Line>
-      <Line delay={0.6}>
+      <Line>
         <Button variant="primary" href={link} key="play" disabled={!link}>Link</Button>
         <Button variant="secondary" href={sourcecode} key="source" disabled={!sourcecode}>Source</Button>
       </Line>
