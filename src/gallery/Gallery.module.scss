@@ -1,0 +1,40 @@
+
+.card_outer {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  height: 400vh;
+  overflow: hidden;
+}
+
+.card_bg {
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  height: 100vh;
+  width: 100vw;
+}
+
+.card_img_container {
+  display:flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+.card_bg_img {
+  position:absolute;
+  height: 100%;
+  transform: scale(1.6);
+}
+
+.detail_outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

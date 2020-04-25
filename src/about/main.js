@@ -1,5 +1,5 @@
 import React from 'react';
-import { BigTitle, Content } from '../utils/Components';
+import { BigTitle } from '../utils/Components';
 import About from './Components';
 
 export default () => (
@@ -9,8 +9,6 @@ export default () => (
         Fogrexの概要
       </p>
     </BigTitle>
-    <Content>
-      <About />
-    </Content>
+    <About />
   </>
 );

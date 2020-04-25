@@ -9,6 +9,7 @@
     "bootstrap": "^4.4.1",
     "cra-sass": "0.0.5",
     "node-sass": "^4.13.1",
+    "rc-scroll-anim": "^2.7.4",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",

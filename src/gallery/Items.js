@@ -66,7 +66,7 @@ export default [
   },
   {
     title: 'Fogrex-SNS',
-    description: '自作のSNS　サークル内の講習会の集大成',
+    description: '自作のSNS  Webアプリケーション',
     tags: 'React Nodejs Material-UI traP',
     link: 'http://sns.fogrex.com',
     sourcecode: 'https://github.com/Fogrexon/Fogrex-SNS',
@@ -75,7 +75,7 @@ export default [
   {
     title: 'Fogrex\'s Website',
     description: 'このサイト',
-    tags: 'React bootstrap Three.js',
+    tags: 'React bootstrap',
     link: 'http://fogrex.com',
     sourcecode: 'https://github.com/Fogrexon/portfolio',
     src: Website,

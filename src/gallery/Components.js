@@ -1,38 +1,105 @@
 
 import React from 'react';
-import {
-  Button, Card, CardColumns, Badge,
-} from 'react-bootstrap';
+import { Parallax, Element as ScrollElement } from 'rc-scroll-anim';
+
+import Information from './Information';
+import style from './Gallery.module.scss';
 import Items from './Items';
 import noImage from '../images/galleries/noimage.png';
 
-
-export const GalleryCard = ({ item }) => {
+export const GalleryCard = ({ item, index, len }) => {
   let { src } = item;
-  const {
-    title, description, link, sourcecode, tags,
-  } = item;
+  const { title } = item;
   src = src || noImage;
+
+  const id = `card_${index}`;
+
+  const [css, setCss] = React.useState({
+  });
+
+  const scrollStart = () => {
+    setCss({
+      ...css,
+      position: 'fixed',
+      top: 0,
+    });
+  };
+  const scrollEnd = () => {
+    setCss({
+      ...css,
+      position: 'absolute',
+      top: '300vh',
+    });
+  };
+  const scrollStartBack = () => {
+    setCss({
+      ...css,
+      position: 'fixed',
+      top: 0,
+    });
+  };
+  const scrollEndBack = () => {
+    setCss({
+      ...css,
+      position: '',
+      top: '',
+    });
+  };
+
+
   return (
-    <Card>
-      <Card.Img variant="top" src={src} />
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <div>{tags.split(' ').map((tag) => (<Badge variant="secondary" key={tag} style={{ borderRadius: '10px', margin: '2px' }}>{tag}</Badge>))}</div>
-        <Card.Text>{description}</Card.Text>
-        <Button variant="primary" href={link} key="play" disabled={!link}>Link</Button>
-        <Button variant="secondary" href={sourcecode} key="source" disabled={!sourcecode}>Source</Button>
-      </Card.Body>
-    </Card>
+    <ScrollElement className={style.card_outer} id={id}>
+      <Parallax
+        animation={
+          {
+            playScale: [1, 4],
+            onStart: scrollStart,
+            onComplete: scrollEnd,
+            onStartBack: scrollStartBack,
+            onCompleteBack: scrollEndBack,
+          }
+        }
+        style={css}
+        location={id}
+        className={style.card_bg}
+      >
+        <Parallax
+          animation={[
+            {
+              translateY: '0%',
+              opacity: 0.3,
+              playScale: [1, 2],
+            },
+            {
+              translateY: '-20%',
+              opacity: 0,
+              playScale: [1, 2],
+            },
+          ]}
+          style={{
+            opacity: 0,
+            transform: 'translateY(20%)',
+          }}
+          location={id}
+          className={style.card_img_container}
+        >
+          <img src={src} className={style.card_bg_img} alt={title} />
+        </Parallax>
+        <div className={style.detail_outer}>
+          <Information id={id} item={item} index={index} len={len} />
+        </div>
+      </Parallax>
+    </ScrollElement>
   );
 };
 
 export default () => {
-  const listItem = Items.map((item) => <GalleryCard item={item} key={item.title} />);
+  const listItem = Items.map((item, index) => (
+    <GalleryCard item={item} index={index} len={Items.length} key={item.title} />
+  ));
   return (
     <div className="main-section">
-      <h1 className="section-title link">Gallery</h1>
-      <CardColumns>{listItem}</CardColumns>
+      {listItem}
     </div>
   );
 };
