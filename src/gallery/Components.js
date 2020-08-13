@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { Parallax, Element as ScrollElement } from 'rc-scroll-anim';
+import { getWorkList } from '../firebase/firestore';
 
 import Information from './Information';
 import style from './Gallery.module.scss';
-import Items from './Items';
 import noImage from '../images/galleries/noimage.png';
 
 export const GalleryCard = ({ item, index }) => {
@@ -46,12 +45,25 @@ export const GalleryCard = ({ item, index }) => {
 };
 
 export default () => {
-  const listItem = Items.map((item, index) => (
-    <GalleryCard item={item} index={index} key={item.title} />
-  ));
+  const [items, setItems] = React.useState([]);
+  React.useEffect(
+    () => {
+      getWorkList().then((docs) => {
+        const gotItems = [];
+        docs.forEach((doc) => {
+          if (doc.exists) gotItems.push(doc.data());
+        });
+        setItems(gotItems);
+      });
+    },
+    [],
+  );
+
   return (
     <div className="main-section">
-      {listItem}
+      {items.map((item, index) => (
+        <GalleryCard item={item} index={index} key={item.title} />
+      ))}
     </div>
   );
 };

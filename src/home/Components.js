@@ -3,9 +3,9 @@ import {
   Card, Button, Badge,
 } from 'react-bootstrap';
 import CardColumns from 'react-bootstrap/CardColumns';
-import Items from '../gallery/Items';
 import noImage from '../images/galleries/noimage.png';
 import iconPath from '../images/fogrex_icon.svg';
+import { getWorkList } from '../firebase/firestore';
 
 export const GalleryCard = ({ item }) => {
   let { src } = item;
@@ -18,7 +18,7 @@ export const GalleryCard = ({ item }) => {
       <Card.Img variant="top" src={src} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
-        <div>{tags.split(' ').map((tag) => (<Badge variant="secondary" key={tag} style={{ borderRadius: '10px', margin: '2px' }}>{tag}</Badge>))}</div>
+        <div>{tags.map((tag) => (<Badge variant="secondary" key={tag} style={{ borderRadius: '10px', margin: '2px' }}>{tag}</Badge>))}</div>
         <Card.Text>{description}</Card.Text>
         <Button variant="primary" href={link} key="play" disabled={!link}>Link</Button>
         <Button variant="secondary" href={sourcecode} key="source" disabled={!sourcecode}>Source</Button>
@@ -31,19 +31,28 @@ const iconImage = new Image();
 iconImage.src = iconPath;
 
 export default () => {
-  const listItem = [];
-  for (let i = Math.max(Items.length - 2, 0); i < Items.length; i += 1) {
-    listItem.push(
-      <GalleryCard
-        item={Items[i]}
-        key={Items[i].title}
-      />,
-    );
-  }
+  const [items, setItems] = React.useState([]);
+  React.useEffect(
+    () => {
+      getWorkList(3).then((docs) => {
+        const gotItems = [];
+        docs.forEach((doc) => {
+          if (doc.exists) gotItems.push(doc.data());
+        });
+        setItems(gotItems);
+      });
+    },
+    [],
+  );
+
   return (
     <div className="main-section">
       <h1 className="section-title">Latest</h1>
-      <CardColumns>{listItem}</CardColumns>
+      <CardColumns>
+        {items.map((item, index) => (
+          <GalleryCard item={item} index={index} key={item.title} />
+        ))}
+      </CardColumns>
     </div>
   );
 };

@@ -22,7 +22,7 @@ export default ({
       <Line>
         <div>
           {
-            tags.split(' ').map((tag) => (
+            tags.map((tag) => (
               <Badge variant="secondary" key={tag} style={{ borderRadius: '10px', margin: '2px' }}>{tag}</Badge>
             ))
           }
