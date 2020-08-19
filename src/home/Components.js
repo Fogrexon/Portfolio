@@ -34,7 +34,7 @@ export default () => {
   const [items, setItems] = React.useState([]);
   React.useEffect(
     () => {
-      getWorkList(3).then((docs) => {
+      getWorkList(2).then((docs) => {
         const gotItems = [];
         docs.forEach((doc) => {
           if (doc.exists) gotItems.push(doc.data());

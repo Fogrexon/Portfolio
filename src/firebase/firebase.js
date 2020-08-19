@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {

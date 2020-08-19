@@ -4,6 +4,10 @@ body {
   overflow: hidden;
 }
 
+.contents-outer {
+  min-height: calc(100vh - 56px - 260px);
+}
+
 .section-title {
   text-shadow: 0px 0px 10px rgba(white, 0.8);
 }
