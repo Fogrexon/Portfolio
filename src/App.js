@@ -15,6 +15,7 @@ import Gallery from './gallery/main';
 import Blog from './blog/main';
 import Admin from './admin/Admin';
 import SignIn from './admin/SignIn';
+import GalleryAdmin from './admin/GalleryAdmin';
 
 import Auth from './utils/Auth';
 
@@ -29,6 +30,7 @@ const Switcher = () => (
       <Route exact path="/admin/signin" component={SignIn} />
       <Auth>
         <Route exact path="/admin" component={Admin} />
+        <Route exact path="/admin/work" component={GalleryAdmin} />
       </Auth>
     </Switch>
   </>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 import { Redirect } from 'react-router-dom';
 import { firebase, auth as firebaseAuth } from '../firebase/firebase';
 
