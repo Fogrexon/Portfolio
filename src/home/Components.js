@@ -19,7 +19,7 @@ export const GalleryCard = ({ item }) => {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <div>{tags.map((tag) => (<Badge variant="secondary" key={tag} style={{ borderRadius: '10px', margin: '2px' }}>{tag}</Badge>))}</div>
-        <Card.Text>{description}</Card.Text>
+        <Card.Text>{description.length > 50 ? `${description.slice(0, 50)}...` : description}</Card.Text>
         <Button variant="primary" href={link} key="play" disabled={!link}>Link</Button>
         <Button variant="secondary" href={sourcecode} key="source" disabled={!sourcecode}>Source</Button>
       </Card.Body>
@@ -34,11 +34,7 @@ export default () => {
   const [items, setItems] = React.useState([]);
   React.useEffect(
     () => {
-      getWorkList(3).then((docs) => {
-        const gotItems = [];
-        docs.forEach((doc) => {
-          if (doc.exists) gotItems.push(doc.data());
-        });
+      getWorkList(2).then((gotItems) => {
         setItems(gotItems);
       });
     },

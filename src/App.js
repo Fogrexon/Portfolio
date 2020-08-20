@@ -13,6 +13,11 @@ import Home from './home/main';
 import About from './about/main';
 import Gallery from './gallery/main';
 import Blog from './blog/main';
+import Admin from './admin/Admin';
+import SignIn from './admin/SignIn';
+import GalleryAdmin from './admin/GalleryAdmin';
+
+import Auth from './utils/Auth';
 
 
 const Switcher = () => (
@@ -22,6 +27,11 @@ const Switcher = () => (
       <Route exact path="/about" component={About} />
       <Route exact path="/gallery" component={Gallery} />
       <Route exact path="/blog" component={Blog} />
+      <Route exact path="/admin/signin" component={SignIn} />
+      <Auth>
+        <Route exact path="/admin" component={Admin} />
+        <Route exact path="/admin/work" component={GalleryAdmin} />
+      </Auth>
     </Switch>
   </>
 );
@@ -30,7 +40,9 @@ const Switcher = () => (
 export default () => (
   <Router>
     <NavigationBar />
-    <Switcher />
+    <div className="contents-outer">
+      <Switcher />
+    </div>
     <Footer />
   </Router>
 );
