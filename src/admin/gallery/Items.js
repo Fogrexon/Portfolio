@@ -5,6 +5,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
 import { firebase } from '../../firebase/firebase';
 import { updateWork } from '../../firebase/firestore';
+import { uploadImage } from '../../firebase/storage';
 
 import style from './Items.module.scss';
 
@@ -15,6 +16,7 @@ export default ({
   link,
   sourcecode,
   id,
+  src,
 }) => {
   const [itemstate, setItemState] = useState({
     title,
@@ -22,6 +24,7 @@ export default ({
     tags: tags.join(' '),
     link,
     sourcecode,
+    src,
   });
   const [activekey, setActivekey] = useState('');
 
@@ -44,8 +47,17 @@ export default ({
       link: itemstate.link || '',
       sourcecode: itemstate.sourcecode || '',
       updatedAt: firebase.firestore.Timestamp.fromDate(new Date()),
+      src: itemstate.src || '',
     }).then(() => {
       console.log('sended');
+    });
+  };
+
+  const imageChange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    uploadImage(id, file).then((url) => {
+      changeState('src', url);
     });
   };
 
@@ -78,6 +90,7 @@ export default ({
                   key="description"
                   onChange={(e) => { changeState('description', e.target.value); }}
                   value={itemstate.description}
+                  className={style.description_area}
                 />
               </Form.Group>
               <Form.Group>
@@ -108,6 +121,16 @@ export default ({
                   key="sourcecode"
                   onChange={(e) => { changeState('sourcecode', e.target.value); }}
                   value={itemstate.sourcecode}
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.File label="Sample Image File" onChange={imageChange} />
+                <img src={itemstate.src} style={{ width: '100%' }} alt={`${itemstate.title}`} />
+                <Form.Control
+                  type="text"
+                  key="src"
+                  value={itemstate.src}
+                  readOnly
                 />
               </Form.Group>
               <Button type="submit" onClick={(e) => updateItem(e)}>Update</Button>
