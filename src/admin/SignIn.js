@@ -9,15 +9,28 @@ const loginHandler = () => {
 };
 
 export default () => {
-  const [login, setLoginStatus] = useState(false);
-  const [checked, setChecked] = useState(false);
+  const [login, setLoginStatus] = useState('uncheck');
   useEffect(() => {
     firebaseAuth.onAuthStateChanged((user) => {
-      setChecked(true);
-      setLoginStatus(!!user && process.env.REACT_APP_ADMINISTRATOR_UID === user.uid);
+      if (!user) {
+        setLoginStatus('not logged in');
+      } else if (user.uid === process.env.REACT_APP_ADMINISTRATOR_UID) {
+        setLoginStatus('logged in');
+      } else {
+        setLoginStatus('permission denied');
+      }
     });
   }, []);
-  if (!checked) return 'Loading...';
-  if (login) return <Redirect to="/admin" />;
-  return (<Button onClick={loginHandler}>Signin with google</Button>);
+  switch (login) {
+    case 'uncheck':
+      return 'Loading';
+    case 'logged in':
+      return <Redirect to="/admin" />;
+    case 'not logged in':
+      return (<Button onClick={loginHandler}>Signin with google</Button>);
+    case 'permission denied':
+      return 'Permission Denied';
+    default:
+      return '';
+  }
 };
