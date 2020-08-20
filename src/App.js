@@ -5,6 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import './App.scss';
+import './EasyMDE.scss';
 
 
 import { NavigationBar, Footer } from './navigations/Components';
@@ -18,6 +19,7 @@ import Admin from './admin/Admin';
 import SignIn from './admin/SignIn';
 import GalleryAdmin from './admin/GalleryAdmin';
 import BlogAdmin from './admin/BlogAdmin';
+import BlogEdit from './blogedit/BlogEdit';
 
 import Auth from './utils/Auth';
 
@@ -35,6 +37,7 @@ const Switcher = () => (
         <Route exact path="/admin" component={Admin} />
         <Route exact path="/admin/work" component={GalleryAdmin} />
         <Route exact path="/admin/blog" component={BlogAdmin} />
+        <Route exact path="/admin/blog/:id" component={BlogEdit} />
       </Auth>
     </Switch>
   </>
