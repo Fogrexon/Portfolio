@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import { getBlog } from '../firebase/firestore';
 import markdown from '../markdown';
+import style from './Blog.module.scss';
 
 const formatDate = (date, _format) => {
   let format = _format || 'YYYY-MM-DD hh:mm:ss';
@@ -47,7 +48,10 @@ export default (props) => {
   return (
     <Container>
       <div style={{ fontSize: '20px' }}>{formatDate(blog.createdAt, 'YYYY年MM月DD日')}</div>
-      <div dangerouslySetInnerHTML={{ __html: markdown.render(blog.content) }} />
+      <div
+        className={style.markdown_container}
+        dangerouslySetInnerHTML={{ __html: markdown.render(blog.content) }}
+      />
     </Container>
   );
 };

@@ -12,6 +12,17 @@ const uploadImage = async (id, file) => {
   return url;
 };
 
+const uploadBlogImage = async (id, file) => {
+  const storageRef = storage.ref();
+  const { name } = file;
+
+  const uploadTask = storageRef.child(`blog/${id}/${name}`);
+  const snapshot = await uploadTask.put(file);
+  const url = await snapshot.ref.getDownloadURL();
+  return url;
+};
+
 export {
   uploadImage,
+  uploadBlogImage,
 };
