@@ -29,7 +29,8 @@ export default (props) => {
   const { id } = props.match.params;
   const [markdown, setMarkdown] = useState('');
   const [title, setTitle] = useState('');
-  const [images, setImages] = useState(['初期生成マン|']);
+  const [tags, setTags] = useState('');
+  const [images, setImages] = useState([]);
   const [submited, setSubmited] = useState(false);
 
   useEffect(
@@ -37,6 +38,7 @@ export default (props) => {
       getBlog(id).then((blog) => {
         setMarkdown(blog.content);
         setTitle(blog.title);
+        setTags((blog.tags || []).join(' '));
         setImages(blog.images || []);
       });
     },
@@ -45,6 +47,9 @@ export default (props) => {
 
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
+  };
+  const handleTagChange = (e) => {
+    setTags(e.target.value);
   };
   const handleMarkdownChange = (e) => {
     setMarkdown(e);
@@ -78,6 +83,7 @@ export default (props) => {
     updateBlog(id, {
       title,
       content: markdown,
+      tags: tags.split(' '),
     }).then(() => {
       setSubmited(true);
     });
@@ -89,9 +95,13 @@ export default (props) => {
     <Container>
       <h1 className="section-title">Blog Editor</h1>
       <Form>
-        <Form.Group>
+        <Form.Group key="title">
           <Form.Label>Title</Form.Label>
           <Form.Control key="title" placeholder="Title" type="text" onChange={handleTitleChange} value={title} />
+        </Form.Group>
+        <Form.Group key="tag">
+          <Form.Label>Tag</Form.Label>
+          <Form.Control key="tags" placeholder="Tags" type="text" onChange={handleTagChange} value={tags} />
         </Form.Group>
       </Form>
       <div className={style.image_container}>
